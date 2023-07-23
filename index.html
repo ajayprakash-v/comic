@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>books</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+	<script src="jquery.js"></script>
+	<script src="gsap.js"></script>
+	<script src="scrolltrigger.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+</head>
+<body>
+	<main>
+		<!--transitionslider-->
+		<div id="nextpage">
+		<div id="page2" class="bg-light p-5 d-flex justidy-content-center align-items-center">
+			<img src="images/back.png" id="backward" width="30px" class="position-fixed bottom-0 m-5" >
+			<div class="container">
+				<div class="row">
+					<div class="col-4 p-5 d-flex justidy-content-center align-items-center">
+						<h2 id="quotes">"Life is a cycle get reapir again again again reapir again again againreapir again again againreapir again again again"</h2>
+						
+					</div>
+					<div class="col-8 text-light bg-dark p2 d-flex justify-content-center position-relative align-items-center ps-5">
+						<p style="width: 45vw;animation: p2 1s;" id="dis">jbaoiubaob cobacobacoibapcibaiocboaicbbcaiob biobp oaoid coadp haphd piahdpiahdpihapidhp ahp dpahphpa pha hphPIDHPAHPDHPHDPAHDPIHDPIAH HP P AHPH PHhphphp hpoqhp hpqh pdh pqh dphqph pdhqhd q9ph q 9 9ugd97gq9gd9qg9gd9qg9dgqgdgdq8gd9qgdgqdgqdgq9dg9</p>
+						<span class="position-absolute bottom-0 end-0 m-5" style="cursor: pointer;z-index: 2;" id="viewmore">View more</span>
+						<div id="details">
+						<h2 id="p2title">The title of the book</h2>
+						<h5 class="mt-5" id="author">Author name</h5>
+						<div class="mt-5 d-flex w-100 justify-content-between">
+							<div>
+								<h6>Published</h6>
+								<span id="pdate">July-0-000</span>
+							</div>
+							<div>
+								<h6>Publisher</h6>
+								<span id="publisher">name of</span>
+							</div>
+						</div>
+						<h6 class="mt-5">Categary</h6>
+						<p id="genre">Fictional,magical</p>
+					</div>
+					</div>
+				</div>
+			</div> 
+		</div>
+		</div>
+		<!--transitionslider-->
+		<!--foregroundimages-->
+		<div id="fore">
+		<div id="background"></div>
+		<img src="images/s2.png" id="s2">
+		<img src="images/s1.png" id="s1">
+		<img src="images/b2.png" id="b2">
+		<img src="images/b1.png" id="b1">
+		<img src="images/w1.png" id="w1">
+		<img src="images/w2.png" id="w2">
+		<img src="images/w3.png" id="w3">
+		<img src="images/h1.png" id="h1">
+		<img src="images/h2.png" id="h2">
+		<img src="images/ha1.png" id="ha1">
+		<img src="images/ha2.png" id="ha2">
+		<img src="images/ha3.png" id="ha3">
+		<img src="images/n1.png" id="n1">
+		<img src="images/na1.png" id="na1">
+		<img src="images/na2.png" id="na2">
+		<img src="images/na3.png" id="na3">
+		</div>
+		<!--foregroundimages-->
+		<div id="box" class="d-flex justidy-content-center align-items-center">
+			<div class="p-3 title">
+				<h1>THE BOOK OF THE TALE</h1>
+				<div id="ratings" class="d-flex">
+					<img src="images/star.png" style="animation: star .5s">
+				</div>
+			</div>
+		</div>
+		<div id="rollercontainer">
+			<div id="roller" class="ms-5 mt-3">
+				<div id="book" val='1'>
+					<img src="images/1.jpeg" id="img1">
+				</div>
+				<div id="book" val='2'>
+					<img src="images/2.jpeg">
+				</div>
+				<div id="book" val='3'>
+					<img src="images/3.jpeg">
+				</div>
+				<div id="book" val='4'>
+					<img src="images/4.jpeg">
+				</div>
+				<div id="book" val='5'>
+					<img src="images/5.jpeg">
+				</div>
+				<div id="book" val='6'>
+					<img src="images/6.jpeg">
+				</div>
+				<div id="book" val='7'>
+					<img src="images/7.jpg">
+				</div>
+			</div>
+		</div>
+	</main>
+
+<script>
+	gsap.registerPlugin('ScrollTrigger')
+	const books = gsap.utils.toArray('#book')
+	var value = ''
+	const tittle = document.getElementById('title')
+	const ratings = document.getElementById('ratings')
+	books.forEach((e)=>{
+		gsap.to(e,{
+			scrollTrigger:{
+				trigger:e,
+				start:'top 50%',
+				end:'bottom 50%',
+				onLeave:()=>{e.classList.remove('selected')},
+				onEnter:()=>{e.classList.add('selected');value=e.getAttribute('val');enter();
+			},
+				onEnterBack:()=>{e.classList.add('selected');value=e.getAttribute('val');enter()},
+				onLeaveBack:()=>{e.classList.remove('selected')},
+			}
+		})
+
+	})
+	function enter(){
+		if (value == '1') {
+					$('#s2').show()
+					$('#s1').show()
+					$('#b2').hide()
+					$('#b1').hide()
+					$('#w1').hide()
+					$('#w2').hide()
+					$('#w3').hide()
+					$('#ha1').hide()
+					$('#ha2').hide()
+					$('#ha3').hide()
+					$('#na1').hide()
+					$('#na2').hide()
+					$('#na3').hide()
+					$('#n1').hide()
+					$('#h1').hide()
+					$('#h2').hide()
+					$('#background').css('background-image','url("images/back1.png")')
+					$('#ratings').children().remove()
+					$('.title').children('h1').remove()
+					$('.title').prepend('<h1>Sky Ward</h1>')
+					for(var i = 0 ; i<4 ; i++){
+						$('#ratings').append('<img src="images/star.png" style="animation: star .5s" class="me-2">')
+					}
+				}
+				else if (value == '2') {
+					$('#s1').hide()
+					$('#s2').hide()
+					$('#b1').show()
+					$('#b2').show()
+					$('#w2').hide()
+					$('#w1').hide()
+					$('#w3').hide()
+					$('#background').css('background-image','url("images/back2.jpeg")')
+					$('.title').children('h1').remove()
+					$('.title').prepend('<h1>The borrower</h1>')
+					$('#ratings').children().remove()
+					for(var i = 0 ; i<5 ;i++){
+						$('#ratings').append('<img src="images/star.png" style="animation: star .5s" class="me-2">')
+					}
+				}
+				else if (value == '3') {
+					$('#b2').hide()
+					$('#b1').hide()
+					$('#w1').show()
+					$('#w2').show()
+					$('#w3').show()
+					$('#h1').hide()
+					$('#h2').hide()
+					$('#background').css('background-image','url("images/back3.jpeg")')
+					$('.title').children('h1').remove()
+					$('.title').prepend('<h1>The wingfather saga</h1>')
+					$('#ratings').children().remove()
+					for(var i = 0 ; i<3 ;i++){
+						$('#ratings').append('<img src="images/star.png" style="animation: star .5s" class="me-2">')
+					}
+				}
+				else if (value == '4') {
+					$('#w1').hide()
+					$('#w2').hide()
+					$('#w3').hide()
+					$('#h1').show()
+					$('#h2').show()
+					$('#ha1').hide()
+					$('#ha2').hide()
+					$('#ha3').hide()
+					$('.title').children('h1').remove()
+					$('.title').prepend('<h1>Closer to nowhere</h1>')
+					$('#background').css('background-image','url("images/back4.jpeg")')
+					$('#ratings').children().remove()
+					for(var i = 0 ; i < 5 ;i++){
+						$('#ratings').append('<img src="images/star.png" style="animation: star .5s" class="me-2">')
+					}
+				}
+				else if (value == '5') {
+					$('#h1').hide()
+					$('#h2').hide()
+					$('#ha1').show()
+					$('#ha2').show()
+					$('#ha3').show()
+					$('#n1').hide()
+					$('#background').css('background-image','url("images/back5.png")')
+					$('.title').children('h1').remove()
+					$('.title').prepend('<h1>Harry patter</h1>')
+					$('#ratings').children().remove()
+					for(var i = 0 ; i < 5 ;i++){
+						$('#ratings').append('<img src="images/star.png" style="animation: star .5s" class="me-2">')
+					}
+				}
+				else if (value == '6') {
+					$('#ha1').hide()
+					$('#ha2').hide()
+					$('#ha3').hide()
+					$('#na1').hide()
+					$('#na2').hide()
+					$('#na3').hide()
+					$('#n1').show()
+					$('#background').css('background-image','url("images/back6.jpeg")')
+					$('.title').children('h1').remove()
+					$('.title').prepend('<h1>By night</h1>')
+					$('#ratings').children().remove()
+					for(var i = 0 ; i < 3 ;i++){
+						$('#ratings').append('<img src="images/star.png" style="animation: star .5s" class="me-2">')
+					}
+				}
+				else if (value == '7') {
+					$('#n1').hide()
+					$('#na1').show()
+					$('#na2').show()
+					$('#na3').show()
+					$('#background').css('background-image','url("images/back7.png")')
+					$('.title').children('h1').remove()
+					$('.title').prepend('<h1>Naruto</h1>')
+					$('#ratings').children().remove()
+					for(var i = 0 ; i < 3 ;i++){
+						$('#ratings').append('<img src="images/star.png" style="animation: star .5s" class="me-2">')
+					}
+				}
+	}
+	const details = [{title:'Sky ward (issue : 1 - 9)',author:'Joe Handresan',published:'march 2021',quotes:` "Bravery isn't about what people call you ist about who you know yourself to be" `,publisher : 'image comic 2021',category:'comic,action,superpower'},{quotes:` "Not that i'm afraid of mice, Homily would say, "but i can't abide the smell "`,title:'The borrower (issue : 7 - 12)',author:'Andrew dat',published:'oct 2019',publisher : 'mwws 2021',category:'comic,love,romatic'},{quotes:` "He moved through the days in deace and wonder,for his whole story had been told for the first time. and he found that he was still loved." `,title:'The wingfeather (issue : 1 - 22)',author:'Andrew peterson',published:'march 2021',publisher : 'Rabit room',category:'fantasy,young adult fiction,dragon'},{quotes:` "every friend deserve a friend. that home in the distance,the one u could never reach? than iam to nowhre " `,title:'Closer to nowhere  (volume-1)',author:'elen Hopkins',published:'oct 6 2021',publisher : 'elens prints',category:'comic,pychology,domestic fiction'},{quotes:` "it is the unknown fear when we look upon death and darkness,nothing more" `,title:'Harry potter (issue : 1 - 89)',author:'Jk rowling',published:'jan 2015',publisher : 'warner bros',category:'comic,superpower,high school,fantasy'},{quotes:` "A day without sunshine is like,you know,night" `,title:'By night',author:'Babel becham',published:'dec 2020',publisher : 'dua publications',category:'adult,thirller,dark magic'},{quotes:` "Hard work is worthless for those that don't believe in themselves." `,title:'Naruto (issue : 445)',author:'masahi kishimoto',published:'march 2002',publisher : 'konomuso',category:'fantasy,ninja'}]
+	const b = document.querySelectorAll('#book')
+	$(b).each((i,e)=>{
+		$(e).click(()=>{
+			$(b).each((id,f)=>{
+				if (f==e) {
+					$(f).show()
+					$('#fore').hide()
+					$('#nextpage').show()
+					setTimeout(()=>{
+						$(f).addClass('next')
+					},500)
+					$('#p2title').text(details[id].title)
+					$('#genre').text(details[id].category)
+					$('#pdate').text(details[id].published)
+					$('#publisher').text(details[id].publisher)
+					$('#author').text(details[id].author)
+					$('#quotes').text(details[id].quotes)
+					$('#dis').hide()
+				}
+				else{
+					$(f).hide()
+				}
+			})		
+		})
+	})
+	
+	$('#backward').click(()=>{
+		$('#nextpage').hide()
+		$('.next').removeClass('next')
+		$('#fore').show()
+		$(b).each((i,e)=>{
+			$(e).show()
+		})
+	})
+	var view = true
+	$('#viewmore').click(()=>{
+
+		if (view) {
+		$('#dis').show()
+		$('#details').hide()
+		view = false
+		$('#viewmore').text('back')
+		}
+		else{
+		$('#dis').hide()
+		$('#details').show()
+		view = true
+		$('#viewmore').text('viewmore')
+		}
+	})
+</script>
+</body>
+</html>
